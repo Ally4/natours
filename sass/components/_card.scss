@@ -1,0 +1,48 @@
+.card {
+    perspective: 150rem; // the low the perspective the more the drama in the transition   [perspective helps in the good looking rotation of anything]
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 50rem; // we put it two times because it got lost and was rotating in another quadrant of col-1-of-3 due to the fixation of the positions
+
+    &__side {
+        background-color: orangered;
+        color: $color-white;
+        font-size: 2rem;
+        height: 50rem;
+        transition: all 1s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        backface-visibility: hidden; //this time is to hide one card and show another, not fixing animation checking
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15rem);
+
+        &--front {
+            background-color: $color-white;
+            z-index: 1;
+        }
+
+        &--back {
+            background-color: green;
+            z-index: 0;
+
+            transform: rotateY(-180deg);
+
+            &-1 {
+                background-image: linear-gradient(
+                    to right bottom, 
+                    $color-secondary-light, 
+                    $color-secondary-dark); // for linear-gradient it background image not background color
+            }
+        }
+    }
+
+
+    &:hover &__side--front {
+        transform: rotateY(180deg)
+    }
+
+    &:hover &__side--back {
+        transform: rotateY(0)
+    }
+}
