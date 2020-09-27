@@ -1,5 +1,6 @@
 .btn {
 
+  &,
   &:link,
   &:visited {
     text-transform: uppercase;
@@ -10,6 +11,9 @@
     transition: all 0.2s;
     position: relative;
     font-size: $default-font-size;
+
+    border: none; // to remove the default border which comes with the button
+    cursor: pointer;
   }
 
   &:hover {
@@ -22,7 +26,9 @@
     }
   }
 
-  &:active {
+  &:active,
+  &:focus {
+    outline: none; // we dont put the outline anyhow on a button to avoid the stress of accessibility
     transform: translateY(-0.1rem);
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
   }
@@ -86,8 +92,8 @@
 
   }
 
-    &:active {
-      box-shadow: 0 .5rem 1rem rgba($color-black, 0.2);
-      transform: translateY(0);
-    }
+  &:active {
+    box-shadow: 0 .5rem 1rem rgba($color-black, 0.2);
+    transform: translateY(0);
   }
+}

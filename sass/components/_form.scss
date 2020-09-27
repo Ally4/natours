@@ -6,17 +6,95 @@
     &__input {
         font-size: 1.5rem;
         font-family: inherit; // to have the same font family in inheritance as the all web
+        color: inherit; // to have the same color in inheritance as the all web
         padding: 1.5rem 2rem;
         border-radius: .2rem;
         background-color: rgba($color-white, .5);
         border: none;
+        border-bottom: .3rem solid transparent;
+        display: block;
+        width: 90%;
+        transition: all .3s;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba($color-black, .1);
+            border-bottom: .3rem solid $color-primary;
+        }
+
+        &:focus:invalid {
+            // this is to highlite the things that are not valid from the browser
+            border-bottom: .3rem solid $color-secondary-dark;
+        }
+
+        &::-webkit-input-placeholder {
+            color: $color-grey-dark-2;
+        }
     }
 
-    &__input:focus {
-        outline: none;
-        box-shadow: 0 1rem 2rem rgba($color-black, .1);
-        border-bottom: .3rem solid $color-primary;
+    &__label {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-left: 2rem;
+        margin-top: .7rem;
+        display: block;
+        transition: all .3s;
     }
 
-    &__label {}
+    &__input:placeholder-shown+&__label {
+        //the :placeholder-shown is to say that when the placeholder is visible, the + is a sibling selector it select directly the first sibling in the way (la sedille est une general sibling selector, the it can select any sibling anywhere), what follows is what will be affected by what is in the braces
+        opacity: 0; // the thing is there by you cannot see it
+        visibility: hidden; // it means the thing is gone, we are using the two because we cannot animate visibility but opacity
+        transform: translateY(-4rem);
+    }
+
+    &__radio {
+
+        &-input {
+            display: none;
+        }
+
+        &-group {
+            width: 49%;
+            display: inline-block;
+        }
+
+        &-label {
+            font-size: $default-font-size;
+            cursor: pointer;
+            position: relative;
+            padding-left: 4.5rem;
+        }
+
+        &-button {
+            height: 3rem;
+            width: 3rem;
+            border: .5rem solid $color-primary;
+            border-radius: 50%;
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            top: -.5rem;
+
+            &::after {
+                content: "";
+                display: block;
+                height: 1.4rem;
+                width: 1.4rem;
+                border-radius: 50%;
+                position: absolute; //the parent position does not need necessary to be relative as long as it position is specified
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: $color-primary;
+                opacity: 0;
+                transition: opacity .2s;
+            }
+        }
+
+        &-input:checked~&-label &-button::after {
+            opacity: 1;
+        }
+
+    }
 }
