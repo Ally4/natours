@@ -25,6 +25,7 @@
         right: 6.5rem;
         background-image: radial-gradient($color-primary-light, $color-primary-dark);  // the radial-gradient it start from the center
         z-index: 1000;
+        transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
 
         // transform: scale(80);
     }
@@ -34,11 +35,12 @@
         // width: 100%;  //it the same is if it was not there because the it is by default when the height is 100vh
         position: fixed;
         top: 0;
-        right: 0;
+        left: 0;
         z-index: 1500;
 
         opacity: 0;
-        width: 0;
+        width: 0;   // this oppacity and width are here to make disappear the whole nav links
+        transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);         // a very interesting way of animating anything, you have to go through this websites and play around with the values!!!!!!!!!!!!!!!!!!!!!!!!!!!!................... HERE ARE THE WEBSITES: https://cubic-bezier.com/         https://easings.net/
     }
 
     &__list {
@@ -81,6 +83,14 @@
             color: $color-primary;
             transform: translateX(1rem);
         }
+    }
+    
+    &__checkbox:checked ~ &__background {
+        transform: scale(80);
+    }
 
+    &__checkbox:checked ~ &__nav {
+        opacity: 1;
+        width: 100% ; 
     }
 }
