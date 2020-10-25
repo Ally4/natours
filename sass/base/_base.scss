@@ -7,8 +7,26 @@
 }
 
 html {
-    // this is a conversion from rem
-  font-size: 62.5%;
+    // this is a conversion from rem (its defines what 1rem is)
+  font-size: 62.5%;       // 1rem = 10px; 10px/16px = 62.5%
+
+  // we have to remove the repetition for a better performance
+
+  @include respond(tab-land) {          // width < 1200px ?
+    font-size: 56.25%;                 // 1rem = 9px ; 9/16 = 56.25%
+  }
+
+
+  /////////////////////////////////// This is the way we need to make this, starting from the bigger to the smaller, because as the application of 500px we need toi avoid conflicting of the less than 600px then 900px, that why we start by bigger to the small.
+
+
+  @include respond(tab-portrait) {    // width < 900px ?
+    font-size: 50%;                 // 1rem = 8px ; 8/16 = 50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%;                     // 1rem = 12px ; 12/16 = 
+  } 
 }
 
 body {
