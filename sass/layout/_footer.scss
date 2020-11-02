@@ -4,6 +4,10 @@
     padding: 5rem 0;
     font-size: 1.4rem;
 
+    @include respond(tab-portrait) {
+        padding: 8rem 0;
+    }
+
     &__logo {
         width: 25rem;
         height: auto; 
@@ -19,6 +23,11 @@
         border-top: .1rem solid $color-grey-dark;
         padding-top: 2rem;
         display: inline-block;
+
+        @include respond(tab-portrait) {
+            width: 100%;
+            text-align: center;
+        }
     }
     &__list {
         list-style: none;
@@ -54,5 +63,10 @@
         padding-top: 2rem;
         width: 80%;
         float: right;
+
+        @include respond(tab-portrait) {
+            width: 100%;
+            float: none;
+        }
     }
 }

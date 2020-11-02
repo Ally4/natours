@@ -17,7 +17,7 @@ html {
   }
 
 
-  /////////////////////////////////// This is the way we need to make this, starting from the bigger to the smaller, because as the application of 500px we need toi avoid conflicting of the less than 600px then 900px, that why we start by bigger to the small.
+  /////////////////////////////////// This is the way we need to make this, starting from the bigger to the smaller, because as the application of 500px we need to avoid conflicting of the less than 600px then 900px, that why we start by bigger to the smaller.(it very important to follow this flow because as any code the responsiveness will take the last value)./////////////////////////////////////////////////
 
 
   @include respond(tab-portrait) {    // width < 900px ?
@@ -31,4 +31,9 @@ html {
 
 body {
   box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tab-portrait) {    // width < 900px ?
+    padding: 0;                 // 1rem = 8px ; 8/16 = 50%
+  }
 }
