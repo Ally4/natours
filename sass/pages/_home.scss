@@ -10,22 +10,26 @@
 
 .section-features {
   padding: 20rem 0;
-  background-image: linear-gradient(to right bottom,
+  background-image: linear-gradient(
+      to right bottom,
       rgba($color-primary-light, 0.801),
-      rgba($color-primary-dark, 0.801)),
+      rgba($color-primary-dark, 0.801)
+    ),
     url(../img/nat-4.jpg);
   background-size: cover;
   margin-top: -7.8rem;
 
-  transform: skewY(-7deg); // In a given way this replace the clip path(where we give the x and y axis values for bending of the axis)
+  transform: skewY(
+    -7deg
+  ); // In a given way this replace the clip path(where we give the x and y axis values for bending of the axis)
 
-  @include respond(tab-portrait) {
-    padding: 15rem 0;
-  }
-
-  &>* {
+  & > * {
     // this is to target the all first child which comes directly from the parent()
     transform: skewY(7deg);
+  }
+
+  @include respond(tab-portrait) {
+    padding: 10rem 0;
   }
 }
 
@@ -50,7 +54,11 @@
 
 .section-book {
   padding: 15rem 0;
-  background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+  background-image: linear-gradient(
+    to right bottom,
+    $color-primary-light,
+    $color-primary-dark
+  );
 
   @include respond(tab-portrait) {
     padding: 10rem 0;
@@ -58,14 +66,17 @@
 }
 
 .book {
-  background-image: linear-gradient(105deg,
-      rgba($color-white, .9) 0%,
-      rgba($color-white, .9) 50%,
-      transparent 50%), // the 0% and 50% set the interval of that color, then the other color start from there (if they one same limit there is no feding in), transparent is also considered as color, the 105% is the one which gives that oblique line , we can try by using other degree
+  background-image: linear-gradient(
+      105deg,
+      rgba($color-white, 0.9) 0%,
+      rgba($color-white, 0.9) 50%,
+      transparent 50%
+    ),
+    // the 0% and 50% set the interval of that color, then the other color start from there (if they one same limit there is no feding in), transparent is also considered as color, the 105% is the one which gives that oblique line , we can try by using other degree
     url(../img/nat-10.jpg);
   background-size: 100%; // the 100% may replace the cover property
-  border-radius: .3rem;
-  box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+  border-radius: 0.3rem;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
   height: 50rem;
 
   &__form {
