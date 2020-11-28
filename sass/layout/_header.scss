@@ -19,7 +19,7 @@
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   }
 
-  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em), (-webkit-min-device-pixel-ration: 2) and (min-width: 37.5em), (min-width: 125em){                       //dpi stands for dot per inch, its a universal reference and it is used by the macbook retina (and it is for resolution), and when resolution is higher the condition is applied(the codes in the brackets), the 192dpi is to specify the resolution of DPR:2.0 (dot per resolution) that why some of the codes can work on the DPR:1.0 and other not            ///// the webkit is for safari works and the 2 is for DPR:2.0
+  @media  only screen and (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em),  only screen and (-webkit-min-device-pixel-ration: 2) and (min-width: 37.5em), (min-width: 125em){                       //dpi stands for dot per inch, its a universal reference and it is used by the macbook retina (and it is for resolution), and when resolution is higher the condition is applied(the codes in the brackets), the 192dpi is to specify the resolution of DPR:2.0 (dot per resolution) that why some of the codes can work on the DPR:1.0 and other not            ///// the webkit is for safari works and the 2 is for DPR:2.0
 
     //////////////////converted from px to em because media queries are always in em, and in our case we divid it by 16/////////
 
