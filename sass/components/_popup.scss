@@ -9,6 +9,15 @@
     opacity: 0;
     visibility: hidden;
     transition: all .3s;
+    // -webkit-backdrop-filter: blur(10px);
+    // backdrop-filter: blur(10px);
+    // background-color: rgba($color-black, .2);
+
+    @supports (-webkit-backdrop-filter: blur(10px)) or (background-color: rgba($color-black, .2)){          //this is to make sure the other browser are supported  especially safari, but at the the time the other are staying the same;  we can give any cardinal number valu right after support, as long as the ones inside are right, and it still keep the property of design from the origin
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background-color: rgba($color-black, .2);
+    }
 
 
     &__content {

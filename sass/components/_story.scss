@@ -23,12 +23,21 @@
         width: 15rem;
         height: 15rem;
         float: left;
-        -webkit-shape-outside: circle(50% at 50% 50%);
-        shape-outside: circle(50% at 50% 50%); // for this to work you need to have specified the dimension (height and weight), you need to have also float, and webkit for some browser, the first 50% is for the radius as it divid the dimension by 2, the second is for the y-axis and the third is for the  x-axis
-        -webkit-clip-path: circle(50% at 50% 50%);
-        clip-path: circle(50% at 50% 50%); // to bring out the circle
+        // -webkit-shape-outside: circle(50% at 50% 50%);
+        // shape-outside: circle(50% at 50% 50%); // for this to work you need to have specified the dimension (height and weight), you need to have also float, and webkit for some browser, the first 50% is for the radius as it divid the dimension by 2, the second is for the y-axis and the third is for the  x-axis
+        // -webkit-clip-path: circle(50% at 50% 50%);
+        // clip-path: circle(50% at 50% 50%); // to bring out the circle
         transform: translateX(-3rem) skewX(12deg); // we made two transform property here because of the flow of codes, and so that the text can be also reskewed to normal, as we give it it own description
         position: relative;
+        overflow: hidden;     // to squeeze the image
+
+        @supports (clip-path: polygon(0 0)) and (-webkit-clip-path: polygon(0 0)) {     //remember as explained in the popup
+            -webkit-clip-path: circle(50% at 50% 50%);
+            clip-path: circle(50% at 50% 50%);
+            -webkit-shape-outside: circle(50% at 50% 50%);
+            shape-outside: circle(50% at 50% 50%);
+            border-radius: none;
+          }
 
         @include respond(phone) {
             transform: translateX(-3rem) skewX(0);
